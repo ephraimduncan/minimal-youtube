@@ -1,15 +1,17 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "Minimal YouTube",
   "version": "0.1.0",
   "description": "An extension for that replaces the YouTube UI with a minimal design containing no recommendations, shorts, or distractions.",
+  "host_permissions": ["https://*.youtube.com/*"],
+  "author": "Ephraim Atta-Duncan",
 
   "content_scripts": [
     {
       "css": ["styles.css"],
       "js": ["content.js"],
-      "matches": ["https://www.youtube.com/*"]
+      "matches": ["https://*.youtube.com/*"]
     }
   ]
 }
