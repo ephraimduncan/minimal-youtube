@@ -9,7 +9,7 @@
     {
       "css": ["styles.css"],
       "js": ["content.js"],
-      "matches": ["https://youtube.com/*"]
+      "matches": ["https://www.youtube.com/*"]
     }
   ]
 }
