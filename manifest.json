@@ -7,6 +7,12 @@
   "host_permissions": ["https://*.youtube.com/*"],
   "author": "Ephraim Atta-Duncan",
 
+  "icons": {
+    "16": "assets/16x16.png",
+    "48": "assets/48x48.png",
+    "128": "assets/128x128.png"
+  },
+
   "content_scripts": [
     {
       "css": ["styles.css"],
