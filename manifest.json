@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Minimal YouTube",
+  "version": "0.1.0",
+  "description": "An extension for that replaces the YouTube UI with a minimal design containing no recommendations, shorts, or distractions.",
+
+  "content_scripts": [
+    {
+      "css": ["styles.css"],
+      "js": ["content.js"],
+      "matches": ["https://youtube.com/*"]
+    }
+  ]
+}
