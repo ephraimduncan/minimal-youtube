@@ -25,4 +25,4 @@ Minimal YouTube is an extension that replaces the YouTube UI with a minimal desi
 
 ### Related
 
-[Minimal Youtube](https://github.com/0kzh/minimal-youtube/) for [Arc Browser](https://arc.internet)
+[Minimal Youtube](https://github.com/0kzh/minimal-youtube/) for [Arc Browser](https://arc.net)
