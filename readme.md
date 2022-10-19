@@ -6,10 +6,17 @@
 Minimal YouTube is an extension that replaces the YouTube UI with a minimal design containing no recommendations, shorts, or distractions.
 
 <p align="center">
-  <a rel="noreferrer noopener" href="https://chrome.google.com/webstore/detail/minimal-youtube/imnffafnaoooaedkhappfhomnnpigogk">
-    <img alt="Chrome Web Store" src="https://img.shields.io/badge/Chrome-141e24.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" >
+  <a
+    rel="noreferrer noopener"
+    href="https://chrome.google.com/webstore/detail/minimal-youtube/imnffafnaoooaedkhappfhomnnpigogk"
+  >
+    <img
+      alt="Chrome Web Store"
+      src="https://img.shields.io/badge/Chrome-141e24.svg?&style=for-the-badge&logo=google-chrome&logoColor=white"
+    />
   </a>
 </p>
+
 
 <p align="center">
   <img src="assets/screenshot-chrome.png" width="1080" alt="Minimal Youtube on Gooogle Chrome">
