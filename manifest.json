@@ -4,7 +4,6 @@
   "name": "Minimal YouTube",
   "version": "1.0.0",
   "description": "An extension for that replaces the YouTube UI with a minimal design containing no recommendations, shorts, or distractions.",
-  "host_permissions": ["https://*.youtube.com/*"],
   "author": "Ephraim Atta-Duncan",
 
   "icons": {
