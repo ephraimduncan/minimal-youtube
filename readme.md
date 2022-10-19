@@ -13,7 +13,6 @@ Minimal YouTube is an extension that replaces the YouTube UI with a minimal desi
 
 <p align="center">
   <img src="assets/screenshot-chrome.png" width="1080" alt="Minimal Youtube on Gooogle Chrome">
-  <img src="assets/screenshot-firefox.png" width="1080" alt="Minimal Youtube on Firefox">
 </p>
 
 ## Installation (Chrome or Microsoft Edge)
