@@ -137,3 +137,7 @@ ytd-watch-flexy:not([theater]):not([fullscreen]) video {
     height: 100% !important;
     left: 0 !important;
 }
+
+ytd-playlist-sidebar-renderer {
+    left: 0 !important;
+}
