@@ -32,7 +32,7 @@ Minimal YouTube is an extension that replaces the YouTube UI with a minimal desi
 
 ## Installation (Firefox)
 - **[Download](https://github.com/dephraiim/minimal-youtube/releases/download/1.0.0/minimal_youtube-1.0.0.zip)** the zip from the Github Releases.
-- **Open [the temporary extensions page](about:debugging#/runtime/this-firefox)** in Firefox.
+- **Open the temporary extensions page** in Firefox: `about:debugging#/runtime/this-firefox`
 - Click the button **_Load Temporary Add-on..._**
 - In the window that pops up, **select the folder that contains the downloaded extension**, then **click _ok_**.
 - **Done!** A new extension called _Minimal Youtube_ should have appeared.
