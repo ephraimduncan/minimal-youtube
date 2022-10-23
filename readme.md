@@ -15,8 +15,14 @@ Minimal YouTube is an extension that replaces the YouTube UI with a minimal desi
       src="https://img.shields.io/badge/Chrome-141e24.svg?&style=for-the-badge&logo=google-chrome&logoColor=white"
     />
   </a>
-</p>
+  <a rel="noreferrer noopener" href="https://addons.mozilla.org/en-US/firefox/addon/minimal-youtube-extension/">
+    <img
+      alt="Firefox Add-ons"
+      src="https://img.shields.io/badge/Firefox-141e24.svg?&style=for-the-badge&logo=firefox-browser&logoColor=white"
+    />
+  </a>
 
+</p>
 
 <p align="center">
   <img src="assets/screenshot-chrome.png" width="1080" alt="Minimal Youtube on Gooogle Chrome">
