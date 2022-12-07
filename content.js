@@ -71,7 +71,6 @@ function replaceHomePage() {
 
     //allow support for # character
     searchText = searchText.replace("#","%23");
-    console.log(searchText);
 
     //use link as previously
     window.location.href = `https://www.youtube.com/results?search_query=${searchText}`;
