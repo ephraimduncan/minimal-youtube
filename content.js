@@ -4,15 +4,31 @@ let oldHref = document.location.href;
 window.onload = init();
 
 function init() {
-  console.log("Loaded");
-
   let bodyList = document.querySelector("body");
+  let headList = document.querySelector("head");
 
   let observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
       if (oldHref != document.location.href) {
         oldHref = document.location.href;
         replaceHomePage();
+      }
+      if (mutation.target.tagName == "TITLE") {
+        // sometimes the title tag is in the body
+        removeUnreadCountFromTitle();
+      }
+    });
+  });
+
+  /* Observe the title tag for changes
+   This is used to remove the unread count from the title
+   e.g. "(123) Rick Astley - Never Gonna Give You Up (Official Music Video)"
+   to "Rick Astley - Never Gonna Give You Up (Official Music Video)"
+  */
+  let titleObserver = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (mutation.target.tagName == "TITLE") {
+        removeUnreadCountFromTitle();
       }
     });
   });
@@ -23,7 +39,9 @@ function init() {
   };
 
   observer.observe(bodyList, config);
+  titleObserver.observe(headList, config);
   replaceHomePage();
+  removeUnreadCountFromTitle()
 }
 
 function replaceHomePage() {
@@ -59,4 +77,15 @@ function replaceHomePage() {
       window.location.href = `https://www.youtube.com/results?search_query=${inputValue}`;
     });
   }
+}
+
+function removeUnreadCountFromTitle() {
+  const title = document.title;
+  // Check if title has unread count
+  if (title.match(/^\(\d+\)\s*/) === null) {
+    return;
+  }
+  // Remove unread count from title
+  const newTitle = title.replace(/^\(\d+\)\s*/, "");
+  document.title = newTitle;
 }
