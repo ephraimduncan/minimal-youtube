@@ -1,111 +1,111 @@
 /* this will get overwritten on load */
 body {
-    display: none;
+  display: none;
 }
 
 html,
 body {
-    height: 100vh;
+  height: 100vh;
 }
 
 .home-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .search-input {
-    padding: 8px;
-    min-width: 250px;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
+  padding: 8px;
+  min-width: 250px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 
 .search-btn {
-    border: none;
-    height: 40px;
-    cursor: pointer;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    padding: 0 16px;
-    transition: background 100ms ease-in-out;
+  border: none;
+  height: 40px;
+  cursor: pointer;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  padding: 0 16px;
+  transition: background 100ms ease-in-out;
 }
 
 .search-icon-container {
-    height: 24px;
-    width: 24px;
+  height: 24px;
+  width: 24px;
 }
 
 @media (prefers-color-scheme: dark) {
-    .logo {
-        color: white;
-        fill: white;
-    }
+  .logo {
+    color: white;
+    fill: white;
+  }
 
-    .search-input {
-        border: 1px solid rgb(48, 48, 48);
-        background: rgb(18, 18, 18);
-        color: white;
-    }
+  .search-input {
+    border: 1px solid rgb(48, 48, 48) !important;
+    background: rgb(18, 18, 18) !important;
+    color: white;
+  }
 
-    .search-btn {
-        background: rgba(255, 255, 255, 0.08);
-    }
+  .search-btn {
+    background: rgba(255, 255, 255, 0.08);
+  }
 
-    .search-icon-container {
-        color: white;
-        fill: white;
-    }
+  .search-icon-container {
+    color: white;
+    fill: white;
+  }
 }
 
 @media (prefers-color-scheme: light) {
-    .search-input {
-        border: 1px solid rgb(204, 204, 204);
-    }
+  .search-input {
+    border: 1px solid rgb(204, 204, 204);
+  }
 
-    .search-btn {
-        background: rgb(248, 248, 248);
-        border: 1px solid rgb(211, 211, 211);
-        border-left: none;
-    }
+  .search-btn {
+    background: rgb(248, 248, 248);
+    border: 1px solid rgb(211, 211, 211);
+    border-left: none;
+  }
 
-    .search-btn:hover {
-        background: rgb(240, 240, 240);
-        border: 1px solid rgb(198, 198, 198);
-        border-left: none;
-    }
+  .search-btn:hover {
+    background: rgb(240, 240, 240);
+    border: 1px solid rgb(198, 198, 198);
+    border-left: none;
+  }
 }
 
 .logo {
-    width: 200px;
+  width: 200px;
 }
 
 .search-input:focus {
-    outline: none;
-    border: 1px solid rgb(28, 98, 185);
+  outline: none;
+  border: 1px solid rgb(28, 98, 185);
 }
 
 .search-group {
-    height: 40px;
-    display: flex;
+  height: 40px;
+  display: flex;
 }
 
 #columns {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #columns #secondary {
-    display: none;
+  display: none;
 }
 
 #columns #primary {
-    max-width: fit-content;
+  max-width: fit-content;
 }
 
 #top-level-buttons-computed,
@@ -113,31 +113,59 @@ body {
 ytd-mini-guide-renderer,
 #related,
 tp-yt-app-drawer,
-.ytd-masthead #buttons,
-#guide-button,
-[class="style-scope ytd-comments"] {
-    display: none !important;
+/* #buttons, */
+#guide-button {
+  display: none !important;
+}
+
+ytd-notification-topbar-button-renderer {
+  display: none !important;
+}
+
+ytd-topbar-menu-button-renderer #button {
+  display: none !important;
+}
+ytd-topbar-menu-button-renderer {
+  display: flex !important;
+  filter: grayscale(100%);
+}
+
+#img {
+  filter: grayscale(100%);
+}
+
+ytd-video-owner-renderer #img {
+  filter: grayscale(0%);
+}
+
+#avatar-btn {
+  display: flex !important;
+}
+
+#primary {
+  max-width: 900px !important;
+  width: 80% !important;
 }
 
 #page-manager {
-    margin-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 .ytp-chrome-bottom {
-    width: calc(98%) !important;
+  width: calc(98%) !important;
 }
 
 ytd-app[mini-guide-visible] ytd-page-manager.ytd-app {
-    margin-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 ytd-watch-flexy:not([theater]):not([fullscreen]) .html5-video-container,
 ytd-watch-flexy:not([theater]):not([fullscreen]) video {
-    width: 100% !important;
-    height: 100% !important;
-    left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
 }
 
 ytd-playlist-sidebar-renderer {
-    left: 0 !important;
+  left: 0 !important;
 }
