@@ -141,3 +141,7 @@ ytd-watch-flexy:not([theater]):not([fullscreen]) video {
 ytd-playlist-sidebar-renderer {
     left: 0 !important;
 }
+
+ytd-reel-shelf-renderer {
+    display: none;
+}

@@ -41,11 +41,12 @@ function init() {
   observer.observe(bodyList, config);
   titleObserver.observe(headList, config);
   replaceHomePage();
-  removeUnreadCountFromTitle()
+  removeUnreadCountFromTitle();
 }
 
 function replaceHomePage() {
   document.querySelector("body").style.cssText = "display:block !important";
+  document.querySelector("body").classList.add("no-pseudo");
   if (window.location.pathname === "/") {
     document.querySelector("body").innerHTML = `
     <div class="home-container">

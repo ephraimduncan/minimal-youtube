@@ -14,6 +14,12 @@
 
   "content_scripts": [
     {
+      "run_at": "document_start",
+      "css": ["loader.css"],
+      "matches": ["https://*.youtube.com/*"],
+      "exclude_matches": ["https://music.youtube.com/*"]
+    },
+    {
       "css": ["styles.css"],
       "js": ["content.js"],
       "matches": ["https://*.youtube.com/*"],
