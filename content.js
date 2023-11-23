@@ -67,15 +67,32 @@ function replaceHomePage() {
     const searchBtn = document.getElementsByClassName("search-btn")[0];
     input.addEventListener("keypress", function (e) {
       if (e.key === "Enter") {
-        const inputValue = input.value;
-        window.location.href = `https://www.youtube.com/results?search_query=${inputValue}`;
+        startSearch(input.value);
+       
       }
     });
 
     searchBtn.addEventListener("click", function (e) {
-      const inputValue = input.value;
-      window.location.href = `https://www.youtube.com/results?search_query=${inputValue}`;
+      
+      startSearch(input.value);
+      
+      
     });
+  }
+  //Fonction added to remove dublicate code between our two listeners keypress and click
+  function startSearch(searchText){
+    //do nothing if text is empty
+    if (searchText.length == 0){
+      return;
+    
+    }
+
+    //allow support for # character
+    searchText = searchText.replace("#","%23");
+
+    //use link as previously
+    window.location.href = `https://www.youtube.com/results?search_query=${searchText}`;
+
   }
 }
 
