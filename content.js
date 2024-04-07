@@ -1,7 +1,16 @@
 /* This runs after a web page loads */
 let oldHref = document.location.href;
 
-window.onload = init();
+chrome.storage.local.get('enabled', data => {
+  if (data.enabled) {
+    addMinimalYoutubeClassToHtml();
+    window.onload = init();
+    return;
+  }
+
+  displayBody();
+});
+
 
 function init() {
   let bodyList = document.querySelector("body");
@@ -45,7 +54,7 @@ function init() {
 }
 
 function replaceHomePage() {
-  document.querySelector("body").style.cssText = "display:block !important";
+  displayBody();
   if (window.location.pathname === "/") {
     document.querySelector("body").innerHTML = `
     <div class="home-container">
@@ -88,4 +97,13 @@ function removeUnreadCountFromTitle() {
   // Remove unread count from title
   const newTitle = title.replace(/^\(\d+\)\s*/, "");
   document.title = newTitle;
+}
+
+function addMinimalYoutubeClassToHtml() {
+  let root = document.documentElement;
+  root.className += ' minial-youtube';
+}
+
+function displayBody() {
+  document.querySelector("body").style.cssText = "display:block !important";
 }

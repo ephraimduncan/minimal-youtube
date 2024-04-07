@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "Minimal YouTube",
   "version": "1.0.1",
@@ -19,5 +19,13 @@
       "matches": ["https://*.youtube.com/*"],
       "exclude_matches": ["https://music.youtube.com/*"]
     }
+  ],
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "permissions": [
+    "storage"
   ]
 }
