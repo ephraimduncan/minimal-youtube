@@ -1,6 +1,6 @@
 'use strict';
 
-let enabled = false;
+let enabled = true;
 const toggle = document.getElementById('toggle');
 
 chrome.storage.local.get('enabled', data => {
