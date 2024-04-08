@@ -119,10 +119,6 @@ tp-yt-app-drawer,
     display: none !important;
 }
 
-#page-manager {
-    margin-left: 0 !important;
-}
-
 .ytp-chrome-bottom {
     width: calc(98%) !important;
 }
