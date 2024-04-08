@@ -2,7 +2,8 @@
 let oldHref = document.location.href;
 
 chrome.storage.local.get('enabled', data => {
-  if (data.enabled) {
+  const enabled = typeof data.enabled === "undefined" ? true : !!data.enabled
+  if (enabled) {
     addMinimalYoutubeClassToHtml();
     window.onload = init();
     return;
