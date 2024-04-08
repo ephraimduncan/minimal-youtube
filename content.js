@@ -102,7 +102,7 @@ function removeUnreadCountFromTitle() {
 
 function addMinimalYoutubeClassToHtml() {
   let root = document.documentElement;
-  root.className += ' minial-youtube';
+  root.className += ' minimal-youtube';
 }
 
 function displayBody() {
