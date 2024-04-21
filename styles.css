@@ -46,8 +46,8 @@ body {
     }
 
     .search-input {
-        border: 1px solid rgb(48, 48, 48);
-        background: rgb(18, 18, 18);
+        border: 1px solid rgb(48, 48, 48) !important;
+        background: rgb(18, 18, 18) !important;
         color: white;
     }
 
@@ -113,10 +113,38 @@ body {
 ytd-mini-guide-renderer,
 #related,
 tp-yt-app-drawer,
-.ytd-masthead #buttons,
-#guide-button,
-[class="style-scope ytd-comments"] {
+/* #buttons, */
+#guide-button {
     display: none !important;
+}
+
+ytd-notification-topbar-button-renderer {
+    display: none !important;
+}
+
+ytd-topbar-menu-button-renderer #button {
+    display: none !important;
+}
+ytd-topbar-menu-button-renderer {
+    display: flex !important;
+    filter: grayscale(100%);
+}
+
+#img {
+    filter: grayscale(100%);
+}
+
+ytd-video-owner-renderer #img {
+    filter: grayscale(0%);
+}
+
+#avatar-btn {
+    display: flex !important;
+}
+
+#primary {
+    max-width: 900px !important;
+    width: 80% !important;
 }
 
 .ytp-chrome-bottom {
@@ -136,4 +164,12 @@ ytd-watch-flexy:not([theater]):not([fullscreen]) video {
 
 ytd-playlist-sidebar-renderer {
     left: 0 !important;
+}
+
+ytd-reel-shelf-renderer {
+    display: none;
+}
+
+ytd-button-renderer {
+    display: flex;
 }
