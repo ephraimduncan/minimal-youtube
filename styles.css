@@ -145,3 +145,7 @@ ytd-playlist-sidebar-renderer {
 ytd-reel-shelf-renderer {
     display: none;
 }
+
+ytd-button-renderer {
+    display: flex;
+}

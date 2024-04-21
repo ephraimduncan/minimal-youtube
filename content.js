@@ -46,7 +46,7 @@ function init() {
 
 function replaceHomePage() {
   document.querySelector("body").style.cssText = "display:block !important";
-  document.querySelector("body").classList.add("no-pseudo");
+  //   document.querySelector("body").classList.add("no-pseudo");
   if (window.location.pathname === "/") {
     document.querySelector("body").innerHTML = `
     <div class="home-container">
