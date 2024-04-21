@@ -192,3 +192,12 @@ html.minimal-youtube ytd-reel-shelf-renderer {
 html.minimal-youtube .left-arrow .right-arrow {
     display: block;
 }
+
+ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app {
+    margin-left: 0 !important;
+}
+
+#page-manager > ytd-browse {
+    width: 50% !important;
+    margin: 0 auto !important;
+}
