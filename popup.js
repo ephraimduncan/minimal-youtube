@@ -1,19 +1,18 @@
-'use strict';
+"use strict";
 
 let enabled = true;
-const toggle = document.getElementById('toggle');
+const toggleSwitch = document.getElementById("toggle");
 
-chrome.storage.local.get('enabled', data => {
+chrome.storage.local.get("enabled", (data) => {
     enabled = typeof data.enabled === "undefined" ? true : !!data.enabled;
-    setToggleText();
+    setToggleState();
 });
 
-toggle.addEventListener("click", () => {
-    enabled = !enabled;
-    chrome.storage.local.set({enabled:enabled});
-    setToggleText();
+toggleSwitch.addEventListener("change", () => {
+    enabled = toggleSwitch.checked;
+    chrome.storage.local.set({ enabled: enabled });
 });
 
-function setToggleText() {
-    toggle.textContent = enabled ? 'Disable' : 'Enable';
+function setToggleState() {
+    toggleSwitch.checked = enabled;
 }
