@@ -1,0 +1,52 @@
+html,
+body {
+    height: 100vh;
+    position: relative;
+}
+
+body:before {
+    /* content: attr(showpseudo, ''); */
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 9998;
+    background-color: black;
+}
+
+body:after {
+    /* content: attr(showpseudo, ''); */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    z-index: 9999;
+}
+
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+body.no-pseudo:after {
+    content: none;
+}
+
+body.no-pseudo:before {
+    content: none;
+}

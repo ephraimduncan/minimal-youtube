@@ -46,8 +46,8 @@ html.minimal-youtube .search-icon-container {
     }
 
     html.minimal-youtube .search-input {
-        border: 1px solid rgb(48, 48, 48);
-        background: rgb(18, 18, 18);
+        border: 1px solid rgb(48, 48, 48) !important;
+        background: rgb(18, 18, 18) !important;
         color: white;
     }
 
@@ -104,6 +104,23 @@ html.minimal-youtube #columns #secondary {
     display: none;
 }
 
+/* code to show playlist panel when it is a video from a playlist */
+html.minimal-youtube #columns #secondary #secondary-inner > * {
+    display: none;
+}
+
+html.minimal-youtube #columns #secondary #secondary-inner > #playlist {
+    display: block;
+}
+
+html.minimal-youtube #columns #secondary:has(ytd-playlist-panel-video-renderer) {
+    display: flex;
+}
+
+html.minimal-youtube #columns.ytd-watch-flexy:has(ytd-playlist-panel-video-renderer) {
+    align-items: flex-start;
+}
+
 html.minimal-youtube #columns #primary {
     max-width: fit-content;
 }
@@ -119,8 +136,34 @@ html.minimal-youtube [class="style-scope ytd-comments"] {
     display: none !important;
 }
 
-html.minimal-youtube #page-manager {
-    margin-left: 0 !important;
+html.minimal-youtube ytd-notification-topbar-button-renderer {
+    display: none !important;
+}
+
+html.minimal-youtube ytd-topbar-menu-button-renderer #button {
+    display: none !important;
+}
+
+html.minimal-youtube ytd-topbar-menu-button-renderer {
+    display: flex !important;
+    filter: grayscale(100%);
+}
+
+html.minimal-youtube #img {
+    filter: grayscale(100%);
+}
+
+html.minimal-youtube ytd-video-owner-renderer #img {
+    filter: grayscale(0%);
+}
+
+html.minimal-youtube #avatar-btn {
+    display: flex !important;
+}
+
+html.minimal-youtube #primary {
+    max-width: 900px !important;
+    width: 80% !important;
 }
 
 html.minimal-youtube .ytp-chrome-bottom {
@@ -140,4 +183,12 @@ html.minimal-youtube ytd-watch-flexy:not([theater]):not([fullscreen]) video {
 
 html.minimal-youtube ytd-playlist-sidebar-renderer {
     left: 0 !important;
+}
+
+html.minimal-youtube ytd-reel-shelf-renderer {
+    display: none;
+}
+
+html.minimal-youtube .left-arrow .right-arrow {
+    display: block;
 }
