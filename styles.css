@@ -104,6 +104,24 @@ body {
     display: none;
 }
 
+/* code to show playlist panel when it is a video from a playlist */
+#columns #secondary #secondary-inner > * {
+    display: none;
+}
+
+#columns #secondary #secondary-inner > #playlist {
+    display: block;
+}
+
+#columns #secondary:has(ytd-playlist-panel-video-renderer) { 
+    display: flex;
+}
+
+#columns.ytd-watch-flexy:has(ytd-playlist-panel-video-renderer) {
+    align-items: flex-start;
+}
+/* code to show playlist panel when is a video from a playlist */
+
 #columns #primary {
     max-width: fit-content;
 }
