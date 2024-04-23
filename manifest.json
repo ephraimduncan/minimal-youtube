@@ -13,12 +13,6 @@
     },
 
     "content_scripts": [
-        // {
-        //     "run_at": "document_start",
-        //     "css": ["src/styles/loader.css"],
-        //     "matches": ["https://*.youtube.com/*"],
-        //     "exclude_matches": ["https://music.youtube.com/*"]
-        // },
         {
             "css": ["src/styles/styles.css"],
             "js": ["src/content/content.js"],
