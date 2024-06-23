@@ -6,6 +6,12 @@
     "description": "An extension for that replaces the YouTube UI with a minimal design containing no recommendations, shorts, or distractions.",
     "author": "Ephraim Atta-Duncan",
 
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "minimal-youtube@ephraim-atta-duncan.com"
+        }
+    },
+
     "icons": {
         "16": "assets/16x16.png",
         "48": "assets/48x48.png",
