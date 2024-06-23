@@ -55,8 +55,9 @@ function init() {
 
 function replaceHomePage() {
     displayBody();
-    document.querySelector("body").style.cssText = "display:block !important";
-    document.querySelector("body").classList.add("no-pseudo");
+    document.body.style.display = "block";
+    document.body.classList.add("no-pseudo");
+
     if (window.location.pathname === "/") {
         document.querySelector("body").innerHTML = `
     <div class="home-container">
@@ -74,8 +75,8 @@ function replaceHomePage() {
     </div>
     `;
 
-        const input = document.getElementsByClassName("search-input")[0];
-        const searchBtn = document.getElementsByClassName("search-btn")[0];
+        const input = document.querySelector(".search-input");
+        const searchBtn = document.querySelector(".search-btn");
         input.addEventListener("keypress", function (e) {
             if (e.key === "Enter") {
                 const inputValue = input.value;
@@ -107,5 +108,5 @@ function addMinimalYoutubeClassToHtml() {
 }
 
 function displayBody() {
-    document.querySelector("body").style.cssText = "display:block !important";
+    document.body.style.display = "block";
 }

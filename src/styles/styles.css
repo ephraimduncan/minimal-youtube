@@ -113,11 +113,14 @@ html.minimal-youtube #columns #secondary #secondary-inner > #playlist {
     display: block;
 }
 
-html.minimal-youtube #columns #secondary:has(ytd-playlist-panel-video-renderer) {
+html.minimal-youtube
+    #columns
+    #secondary:has(ytd-playlist-panel-video-renderer) {
     display: flex;
 }
 
-html.minimal-youtube #columns.ytd-watch-flexy:has(ytd-playlist-panel-video-renderer) {
+html.minimal-youtube
+    #columns.ytd-watch-flexy:has(ytd-playlist-panel-video-renderer) {
     align-items: flex-start;
 }
 
@@ -174,7 +177,9 @@ html.minimal-youtube ytd-app[mini-guide-visible] ytd-page-manager.ytd-app {
     margin-left: 0 !important;
 }
 
-html.minimal-youtube ytd-watch-flexy:not([theater]):not([fullscreen]) .html5-video-container,
+html.minimal-youtube
+    ytd-watch-flexy:not([theater]):not([fullscreen])
+    .html5-video-container,
 html.minimal-youtube ytd-watch-flexy:not([theater]):not([fullscreen]) video {
     width: 100% !important;
     height: 100% !important;
