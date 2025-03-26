@@ -83,6 +83,47 @@ html.minimal-youtube .logo {
     width: 200px;
 }
 
+html.minimal-youtube .nav-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+html.minimal-youtube .nav-button {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 14px;
+    text-align: center;
+    min-width: 100px;
+}
+
+@media (prefers-color-scheme: dark) {
+    html.minimal-youtube .nav-button {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+    html.minimal-youtube .nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    html.minimal-youtube .nav-button {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: #0f0f0f;
+    }
+    html.minimal-youtube .nav-button:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
 html.minimal-youtube .search-input:focus {
     outline: none;
     border: 1px solid rgb(28, 98, 185);
