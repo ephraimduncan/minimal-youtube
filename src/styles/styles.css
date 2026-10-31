@@ -186,8 +186,27 @@ html.minimal-youtube ytd-watch-flexy:not([theater]):not([fullscreen]) video {
     left: 0 !important;
 }
 
-html.minimal-youtube ytd-playlist-sidebar-renderer {
-    left: 0 !important;
+html.minimal-youtube ytd-playlist-sidebar-renderer,
+html.minimal-youtube ytd-playlist-header-renderer,
+html.minimal-youtube
+    ytd-browse[page-subtype="playlist"]
+    yt-page-header-renderer {
+    left: max(0px, calc((100vw - 1264px) / 2 - 24px)) !important;
+}
+
+html.minimal-youtube
+    ytd-browse[page-subtype="playlist"]
+    ytd-two-column-browse-results-renderer {
+    max-width: 1288px;
+    margin-left: max(0px, calc((100vw - 1264px) / 2 - 24px)) !important;
+    margin-right: 0 !important;
+}
+
+/* The global #primary override below is meant for the watch page; on the
+   playlist page it fights the flex sizing above. */
+html.minimal-youtube ytd-browse[page-subtype="playlist"] #primary {
+    width: auto !important;
+    max-width: none !important;
 }
 
 html.minimal-youtube ytd-reel-shelf-renderer {
