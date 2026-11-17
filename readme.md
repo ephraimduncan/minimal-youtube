@@ -28,6 +28,20 @@ Minimal YouTube is an extension that replaces the YouTube UI with a minimal desi
   <img src="assets/screenshot-chrome.png" width="1080" alt="Minimal Youtube on Gooogle Chrome">
 </p>
 
+## Choose what to hide
+
+Click the extension icon to open the popup. The switch turns the extension on or off. Open **Hide on YouTube** to select the parts of YouTube that the extension hides:
+
+- Home feed
+- Sidebar
+- Recommended videos
+- Comments and live chat
+- Shorts
+- Like and share buttons
+- Top bar buttons
+
+A change applies to open YouTube tabs immediately.
+
 ## Installation (Chrome or Microsoft Edge)
 - **[Download](https://github.com/dephraiim/minimal-youtube/releases/download/v1.0.1/minimal_youtube-1.0.1.zip)** the zip from the Github Releases or  **Fork** this repo, then **clone your forked repo locally**.
 - **Open [the extensions page](chrome://extensions)** in Chrome: `chrome://extensions`.

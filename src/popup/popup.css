@@ -1,76 +1,170 @@
-body {
-    width: 10rem;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 0.5rem;
+:root {
+    color-scheme: light dark;
+    --text: light-dark(#0f0f0f, #f1f1f1);
+    --muted: light-dark(#606060, #aaaaaa);
+    --line: light-dark(#e5e5e5, #3f3f3f);
+    --hover: light-dark(rgb(0 0 0 / 0.05), rgb(255 255 255 / 0.1));
+    --track: light-dark(#c4c4c4, #5a5a5a);
+    --surface: light-dark(#ffffff, #212121);
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.logo {
+body {
+    width: 280px;
+    margin: 0;
+    padding: 8px;
+    font:
+        13px/1.4 system-ui,
+        sans-serif;
+    color: var(--text);
+    background: var(--surface);
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+label,
+summary {
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+input {
+    margin: 0;
+    cursor: inherit;
+    accent-color: var(--text);
+}
+
+input:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
+.name {
+    flex: 1;
+}
+
+.master {
     display: flex;
-    justify-items: center;
+    gap: 10px;
     align-items: center;
-    flex-direction: column;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .switch {
     position: relative;
-    display: inline-block;
-    width: 45px;
-    height: 25.5px;
+    width: 36px;
+    height: 20px;
+    appearance: none;
+    background: var(--track);
+    border-radius: 10px;
+    transition: background-color 150ms ease;
 }
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
+.switch::before {
     position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-
-.slider:before {
-    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
     content: "";
-    height: 19.5px;
-    width: 19.5px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-
-input:checked + .slider {
-    background-color: #2196f3;
-}
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(19.5px);
-    -ms-transform: translateX(19.5px);
-    transform: translateX(19.5px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 25.5px;
-}
-
-.slider.round:before {
+    background: var(--surface);
     border-radius: 50%;
+    transition: transform 150ms var(--ease-out);
 }
 
-.disabled-toggle {
-    opacity: 0.5;
+.switch:checked {
+    background: var(--text);
+}
+
+.switch:checked::before {
+    transform: translateX(16px);
+}
+
+details {
+    padding-top: 4px;
+    margin-top: 4px;
+    border-top: 1px solid var(--line);
+}
+
+summary {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 8px;
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.chevron {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: var(--muted);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 150ms var(--ease-out);
+}
+
+details[open] .chevron {
+    transform: rotate(90deg);
+}
+
+.count {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+fieldset {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    transition: opacity 150ms ease;
+}
+
+fieldset:disabled {
+    opacity: 0.4;
+}
+
+fieldset:disabled label {
     cursor: default;
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+    align-items: center;
+    padding: 6px 8px 6px 26px;
+}
+
+.hint {
+    grid-column: 2;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.hint:empty {
+    display: none;
+}
+
+@media (hover: hover) {
+    summary:hover,
+    fieldset:enabled .feature:hover {
+        background: var(--hover);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .switch::before,
+    .chevron {
+        transition: none;
+    }
 }
