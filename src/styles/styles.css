@@ -159,6 +159,11 @@ html[data-minimal-youtube~="related"] {
         ) {
         display: none !important;
     }
+
+    /* The ambient glow is wider than the player. Without the side column, the glow goes past the edge of the window. */
+    ytd-watch-flexy {
+        overflow-x: clip;
+    }
 }
 
 html[data-minimal-youtube~="comments"] {
