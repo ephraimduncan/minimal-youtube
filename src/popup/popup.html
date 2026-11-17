@@ -1,20 +1,38 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-        <title>Minimal Youtube Popup</title>
+        <meta charset="utf-8" />
+        <title>Minimal YouTube</title>
         <link rel="stylesheet" href="./popup.css" />
     </head>
 
-    <body class="">
-        <div class="logo">
-            <img src="../../assets/128x128.png" width="70" />
-            <h2>Minimal Youtube</h2>
-        </div>
-        <div>
-            <label class="switch">
-                <input id="toggle" checked type="checkbox" />
-                <span class="slider round"></span>
+    <body hidden>
+        <label class="master">
+            <img src="../../assets/48x48.png" width="24" height="24" alt="" />
+            <span class="name">Minimal YouTube</span>
+            <input id="enabled" class="switch" type="checkbox" role="switch" />
+        </label>
+
+        <details>
+            <summary>
+                <svg class="chevron" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M6 3.5 10.5 8 6 12.5" />
+                </svg>
+                <span class="name">Hide on YouTube</span>
+                <span id="count" class="count"></span>
+            </summary>
+            <fieldset id="features"></fieldset>
+        </details>
+
+        <template id="feature">
+            <label class="feature">
+                <input type="checkbox" />
+                <span class="name"></span>
+                <span class="hint"></span>
             </label>
-        </div>
+        </template>
+
+        <script src="../features.js"></script>
         <script src="./popup.js"></script>
     </body>
 </html>

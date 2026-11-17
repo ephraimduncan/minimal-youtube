@@ -1,208 +1,214 @@
-/* this will get overwritten on load */
-body {
-    display: none;
+/* Each token in the `data-minimal-youtube` attribute of <html> names one hidden feature. */
+
+html[data-minimal-youtube~="home"] ytd-browse[page-subtype="home"] {
+    display: none !important;
 }
 
-html.minimal-youtube,
-html.minimal-youtube body {
-    height: 100vh;
+html:has(> .minimal-youtube-home:not([hidden])) {
+    /* The page skeleton that YouTube shows during load is taller than the window. */
+    overflow: hidden !important;
+
+    /* The masthead has a higher z-index than the search page and stays in the tab order. */
+    #masthead-container {
+        visibility: hidden !important;
+    }
 }
 
-html.minimal-youtube .home-container {
+.minimal-youtube-home {
+    position: fixed;
+    inset: 0;
+    /* Above the app root, which is positioned, and below the miniplayer. */
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 24px;
     align-items: center;
     justify-content: center;
-    height: 100%;
-}
+    color-scheme: light dark;
+    color: var(--yt-sys-color-baseline--text-primary, CanvasText);
+    background: var(--yt-sys-color-baseline--base-background, Canvas);
 
-html.minimal-youtube .search-input {
-    padding: 8px;
-    min-width: 250px;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-}
-
-html.minimal-youtube .search-btn {
-    border: none;
-    height: 40px;
-    cursor: pointer;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    padding: 0 16px;
-    transition: background 100ms ease-in-out;
-}
-
-html.minimal-youtube .search-icon-container {
-    height: 24px;
-    width: 24px;
-}
-
-@media (prefers-color-scheme: dark) {
-    html.minimal-youtube .logo {
-        color: white;
-        fill: white;
+    &[hidden] {
+        display: none;
     }
 
-    html.minimal-youtube .search-input {
-        border: 1px solid rgb(48, 48, 48) !important;
-        background: rgb(18, 18, 18) !important;
-        color: white;
+    .logo {
+        width: 200px;
+        fill: currentColor;
     }
 
-    html.minimal-youtube .search-btn {
-        background: rgba(255, 255, 255, 0.08);
+    form {
+        display: flex;
+        max-width: calc(100% - 32px);
+        height: 40px;
     }
 
-    html.minimal-youtube .search-icon-container {
-        color: white;
-        fill: white;
+    input {
+        width: 320px;
+        min-width: 0;
+        padding: 0 16px;
+        font:
+            400 16px Roboto,
+            Arial,
+            sans-serif;
+        color: inherit;
+        background: transparent;
+        border: 1px solid var(--yt-sys-color-baseline--outline-opaque, GrayText);
+        border-right: none;
+        border-radius: 20px 0 0 20px;
+        outline: none;
+    }
+
+    input:focus-visible {
+        border-color: var(--yt-sys-color-baseline--call-to-action, Highlight);
+        box-shadow: inset 0 0 0 1px
+            var(--yt-sys-color-baseline--call-to-action, Highlight);
+    }
+
+    button {
+        width: 64px;
+        padding: 0 20px;
+        color: inherit;
+        fill: currentColor;
+        cursor: pointer;
+        background: var(
+            --yt-sys-color-baseline--additive-background,
+            ButtonFace
+        );
+        border: 1px solid var(--yt-sys-color-baseline--outline-opaque, GrayText);
+        border-radius: 0 20px 20px 0;
+        transition: background-color 100ms ease;
+    }
+
+    button:focus-visible {
+        outline: 2px solid
+            var(--yt-sys-color-baseline--call-to-action, Highlight);
+        outline-offset: 2px;
+    }
+
+    @media (hover: hover) {
+        button:hover {
+            background: var(
+                --yt-sys-color-baseline--tonal-background,
+                ButtonFace
+            );
+        }
     }
 }
 
-@media (prefers-color-scheme: light) {
-    html.minimal-youtube .search-input {
-        border: 1px solid rgb(204, 204, 204);
+html[data-minimal-youtube~="guide"] {
+    #guide-button,
+    tp-yt-app-drawer,
+    ytd-mini-guide-renderer {
+        display: none !important;
     }
 
-    html.minimal-youtube .search-btn {
-        background: rgb(248, 248, 248);
-        border: 1px solid rgb(211, 211, 211);
-        border-left: none;
+    /* YouTube offsets its pages by these widths. */
+    ytd-app {
+        --app-drawer-width: 0px !important;
+        --ytd-persistent-guide-width: 0px !important;
+        --ytd-mini-guide-width: 0px !important;
     }
 
-    html.minimal-youtube .search-btn:hover {
-        background: rgb(240, 240, 240);
-        border: 1px solid rgb(198, 198, 198);
-        border-left: none;
+    /* YouTube aligns a page that has a fixed side card to the guide.
+       Center the card and its list as one block, 1308px wide. */
+    ytd-browse:is([has-page-header-sidebar], [page-subtype="playlist"]) {
+        --minimal-youtube-inset: max(0px, (100% - 1308px) / 2);
+        box-sizing: border-box;
+        padding-left: var(--minimal-youtube-inset);
+
+        .page-header-sidebar {
+            left: var(--minimal-youtube-inset) !important;
+        }
+
+        ytd-two-column-browse-results-renderer {
+            max-width: 1308px !important;
+        }
     }
 }
 
-html.minimal-youtube .logo {
-    width: 200px;
+/* Equal side columns keep the search box on the center line of the page. */
+html:is([data-minimal-youtube~="guide"], [data-minimal-youtube~="topbar"]) {
+    ytd-masthead #start,
+    ytd-masthead #end {
+        flex: 1 1 0;
+    }
+
+    ytd-masthead #end {
+        justify-content: flex-end;
+    }
 }
 
-html.minimal-youtube .search-input:focus {
-    outline: none;
-    border: 1px solid rgb(28, 98, 185);
+html[data-minimal-youtube~="related"] {
+    #related,
+    .html5-endscreen,
+    .ytp-ce-element,
+    .ytp-fullscreen-grid {
+        display: none !important;
+    }
+
+    /* The side column stays only for a playlist, an open panel, or live chat.
+       Without it, YouTube centers the player and lets it grow. */
+    ytd-watch-flexy
+        #secondary:not(
+            :has(
+                ytd-playlist-panel-renderer:not([hidden]),
+                ytd-engagement-panel-section-list-renderer[visibility$="EXPANDED"],
+                ytd-live-chat-frame
+            )
+        ) {
+        display: none !important;
+    }
 }
 
-html.minimal-youtube .search-group {
-    height: 40px;
-    display: flex;
+html[data-minimal-youtube~="comments"] {
+    ytd-comments,
+    #chat-container {
+        display: none !important;
+    }
+
+    &[data-minimal-youtube~="related"]
+        ytd-watch-flexy
+        #secondary:not(
+            :has(
+                ytd-playlist-panel-renderer:not([hidden]),
+                ytd-engagement-panel-section-list-renderer[visibility$="EXPANDED"]
+            )
+        ) {
+        display: none !important;
+    }
 }
 
-html.minimal-youtube #columns {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* The tabs and the guide entries have no href, so their title identifies them. It is the English title only. */
+html[data-minimal-youtube~="shorts"] {
+    ytd-reel-shelf-renderer,
+    grid-shelf-view-model:has(ytm-shorts-lockup-view-model),
+    ytd-rich-section-renderer:has(ytm-shorts-lockup-view-model),
+    ytd-video-renderer:has(a[href^="/shorts/"]),
+    yt-tab-shape[tab-title="Shorts"],
+    ytd-guide-entry-renderer:has(a[title="Shorts"]),
+    ytd-mini-guide-entry-renderer:has(a[title="Shorts"]) {
+        display: none !important;
+    }
 }
 
-html.minimal-youtube #columns #secondary {
-    display: none;
+html[data-minimal-youtube~="actions"] {
+    ytd-watch-metadata #top-level-buttons-computed {
+        display: none !important;
+    }
 }
 
-/* code to show playlist panel when it is a video from a playlist */
-html.minimal-youtube #columns #secondary #secondary-inner > * {
-    display: none;
-}
+html[data-minimal-youtube~="topbar"] {
+    #voice-search-button,
+    ytd-masthead
+        #buttons
+        > ytd-button-renderer:not(:has(a[href*="ServiceLogin"])),
+    ytd-notification-topbar-button-renderer {
+        display: none !important;
+    }
 
-html.minimal-youtube #columns #secondary #secondary-inner > #playlist {
-    display: block;
-}
-
-html.minimal-youtube
-    #columns
-    #secondary:has(ytd-playlist-panel-video-renderer) {
-    display: flex;
-}
-
-html.minimal-youtube
-    #columns.ytd-watch-flexy:has(ytd-playlist-panel-video-renderer) {
-    align-items: flex-start;
-}
-
-html.minimal-youtube #columns #primary {
-    max-width: fit-content;
-}
-
-html.minimal-youtube #top-level-buttons-computed,
-html.minimal-youtube #voice-search-button,
-html.minimal-youtube ytd-mini-guide-renderer,
-html.minimal-youtube #related,
-html.minimal-youtube tp-yt-app-drawer,
-html.minimal-youtube .ytd-masthead #buttons,
-html.minimal-youtube #guide-button,
-html.minimal-youtube [class="style-scope ytd-comments"] {
-    display: none !important;
-}
-
-html.minimal-youtube ytd-notification-topbar-button-renderer {
-    display: none !important;
-}
-
-html.minimal-youtube ytd-topbar-menu-button-renderer #button {
-    display: none !important;
-}
-
-html.minimal-youtube ytd-topbar-menu-button-renderer {
-    display: flex !important;
-    filter: grayscale(100%);
-}
-
-html.minimal-youtube #img {
-    filter: grayscale(100%);
-}
-
-html.minimal-youtube ytd-video-owner-renderer #img {
-    filter: grayscale(0%);
-}
-
-html.minimal-youtube #avatar-btn {
-    display: flex !important;
-}
-
-html.minimal-youtube #primary {
-    max-width: 900px !important;
-    width: 80% !important;
-}
-
-html.minimal-youtube .ytp-chrome-bottom {
-    width: calc(98%) !important;
-}
-
-html.minimal-youtube ytd-app[mini-guide-visible] ytd-page-manager.ytd-app {
-    margin-left: 0 !important;
-}
-
-html.minimal-youtube
-    ytd-watch-flexy:not([theater]):not([fullscreen])
-    .html5-video-container,
-html.minimal-youtube ytd-watch-flexy:not([theater]):not([fullscreen]) video {
-    width: 100% !important;
-    height: 100% !important;
-    left: 0 !important;
-}
-
-html.minimal-youtube ytd-playlist-sidebar-renderer {
-    left: 0 !important;
-}
-
-html.minimal-youtube ytd-reel-shelf-renderer {
-    display: none;
-}
-
-html.minimal-youtube .left-arrow .right-arrow {
-    display: block;
-}
-
-ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app {
-    margin-left: 0 !important;
-}
-
-#page-manager > ytd-browse {
-    width: 50% !important;
-    margin: 0 auto !important;
+    /* This margin balances the voice search button. */
+    ytd-masthead yt-searchbox {
+        margin-left: 0 !important;
+    }
 }
