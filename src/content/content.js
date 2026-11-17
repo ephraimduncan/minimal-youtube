@@ -15,6 +15,8 @@ readSettings();
 chrome.storage.onChanged.addListener(readSettings);
 document.addEventListener("DOMContentLoaded", onNavigate);
 document.addEventListener("yt-navigate-finish", onNavigate);
+// The mobile site sends this event in place of `yt-navigate-finish`.
+window.addEventListener("state-navigateend", onNavigate);
 
 function readSettings() {
     chrome.storage.local.get(DEFAULTS, apply);
@@ -35,6 +37,15 @@ function onNavigate() {
 
     home.hidden = !(hidden.includes("home") && location.pathname === "/");
     if (!home.hidden) home.querySelector("input").focus();
+
+    // The Shorts chip above the search results has no attribute that identifies it.
+    for (const chip of document.querySelectorAll(
+        "yt-chip-cloud-chip-renderer",
+    )) {
+        if (chip.textContent.trim() === "Shorts") {
+            chip.hidden = hidden.includes("shorts");
+        }
+    }
 
     const player = document.querySelector("#movie_player");
     if (player) playerObserver.observe(player);

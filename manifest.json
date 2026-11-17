@@ -22,8 +22,7 @@
         {
             "css": ["src/styles/styles.css"],
             "js": ["src/features.js", "src/content/content.js"],
-            "matches": ["https://*.youtube.com/*"],
-            "exclude_matches": ["https://music.youtube.com/*"],
+            "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
             "run_at": "document_start"
         }
     ],

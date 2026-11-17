@@ -39,11 +39,13 @@ html:has(> .minimal-youtube-home:not([hidden])) {
 
     form {
         display: flex;
+        max-width: calc(100% - 32px);
         height: 40px;
     }
 
     input {
         width: 320px;
+        min-width: 0;
         padding: 0 16px;
         font:
             400 16px Roboto,
@@ -160,7 +162,7 @@ html[data-minimal-youtube~="related"] {
 }
 
 html[data-minimal-youtube~="comments"] {
-    ytd-comments#comments,
+    ytd-comments,
     #chat-container {
         display: none !important;
     }
@@ -177,11 +179,13 @@ html[data-minimal-youtube~="comments"] {
     }
 }
 
-/* The guide entries have no href, so their title identifies them. It is the English title only. */
+/* The tabs and the guide entries have no href, so their title identifies them. It is the English title only. */
 html[data-minimal-youtube~="shorts"] {
     ytd-reel-shelf-renderer,
     grid-shelf-view-model:has(ytm-shorts-lockup-view-model),
     ytd-rich-section-renderer:has(ytm-shorts-lockup-view-model),
+    ytd-video-renderer:has(a[href^="/shorts/"]),
+    yt-tab-shape[tab-title="Shorts"],
     ytd-guide-entry-renderer:has(a[title="Shorts"]),
     ytd-mini-guide-entry-renderer:has(a[title="Shorts"]) {
         display: none !important;
